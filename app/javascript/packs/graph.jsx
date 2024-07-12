@@ -37,7 +37,7 @@ const SnapshotShape = PropTypes.shape({
 
 // components
 const Inspector = ({ source, target, topics }) => (
-  <p>
+  <p className="inspector-content">
     {source && target ? (
       <span>
         <strong>{source}</strong> and <strong>{target}</strong> chatted about{' '}
