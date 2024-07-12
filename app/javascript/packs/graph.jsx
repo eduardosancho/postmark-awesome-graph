@@ -15,7 +15,8 @@ const D3_GRAPH_CONFIG = {
     highlightStrokeColor: 'blue',
   },
   link: {
-    highlightColor: '#efefef',
+    highlightColor: '#000',
+    strokeWidth: 4,
   },
 }
 
