@@ -15,7 +15,8 @@ const D3_GRAPH_CONFIG = {
     highlightStrokeColor: 'blue',
   },
   link: {
-    highlightColor: '#efefef',
+    highlightColor: '#000',
+    strokeWidth: 4,
   },
 }
 
@@ -36,7 +37,7 @@ const SnapshotShape = PropTypes.shape({
 
 // components
 const Inspector = ({ source, target, topics }) => (
-  <p>
+  <p className="inspector-content">
     {source && target ? (
       <span>
         <strong>{source}</strong> and <strong>{target}</strong> chatted about{' '}
@@ -56,8 +57,7 @@ Inspector.propTypes = {
 const App = ({ snapshot }) => {
   const [currentSource, setCurrentSource] = React.useState()
   const [currentTarget, setCurrentTarget] = React.useState()
-
-  const topics = 'Cheese and Wine' // FIXME
+  const [currentTopics, setCurrentTopics] = React.useState()
 
   const handleClickNode = _nodeId => {}
 
@@ -70,11 +70,13 @@ const App = ({ snapshot }) => {
   const handleMouseOverLink = (source, target) => {
     setCurrentSource(source)
     setCurrentTarget(target)
+    setCurrentTopics(snapshot.links.find(l => l.source === source && l.target === target).topics);
   }
 
   const handleMouseOutLink = (_source, _target) => {
     setCurrentSource(undefined)
     setCurrentTarget(undefined)
+    setCurrentTopics(undefined)
   }
 
   return (
@@ -83,7 +85,7 @@ const App = ({ snapshot }) => {
         <Inspector
           source={currentSource}
           target={currentTarget}
-          topics={topics}
+          topics={currentTopics}
         />
       </div>
       <Graph
@@ -107,8 +109,9 @@ App.propTypes = {
 const DUMMY_SNAPSHOT = {
   nodes: [{ id: 'Harry' }, { id: 'Sally' }, { id: 'Alice' }],
   links: [
-    { source: 'Harry', target: 'Sally' },
-    { source: 'Harry', target: 'Alice' },
+    { source: 'Harry', target: 'Sally', topics: 'Topic1 and Topic5' },
+    { source: 'Harry', target: 'Alice', topics: 'Topic2 and Topic6' },
+    { source: 'Sally', target: 'Alice', topics: 'Topic3 and Topic7' },
   ],
 }
 
