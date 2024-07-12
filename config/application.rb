@@ -35,5 +35,6 @@ module PmFullstackTestProject
     config.generators.system_tests = nil
     config.x.postmark.api_token = ENV['POSTMARK_API_TOKEN'].presence ||
         (raise 'Please set the POSTMARK_API_TOKEN environment variable.')
-  end
+    config.action_mailer.delivery_method = :postmark
+  end  
 end
