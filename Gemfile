@@ -8,6 +8,7 @@ gem "rails", "~> 7.0"
 gem "bootsnap", require: false
 gem "jbuilder"
 gem "postmark"
+gem "postmark-rails"
 gem "puma"
 gem "sqlite3"
 gem "webpacker", "~> 5.0"
