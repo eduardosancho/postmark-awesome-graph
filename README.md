@@ -45,7 +45,7 @@ The app’s boilerplate consists of a Rake task `snapshot:take` that takes a (sa
 
 #### Default data
 
-Until your first snapshot is taken, the component will show the data hard-coded in the `graph.jsx` file. The graph shows a network of in-app communications where each node is a person and each connection is a message from one person to another. When the user highlights a line connecting two users, the inspector component should display the topics the two chatted about. See the screenshot below for an example.
+Until your first snapshot is taken, the component will show the data hard-coded in the `graph.jsx` file. The graph shows a network of in-app communications where each node is a person and each connection is a message from one person to another. When the user highlights a line connecting two users, the inspector component should display the topics the two chatted about. See the screenshot below for an example..
 
 #### Preview of the awesome graph
 
